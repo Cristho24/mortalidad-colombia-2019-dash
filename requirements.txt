@@ -1,0 +1,21 @@
+# Core dependencies
+dash>=2.18.2
+plotly==5.18.0
+pandas>=3.0.0
+openpyxl>=3.1.5
+
+# Web server
+gunicorn==21.2.0
+
+# Data processing
+numpy>=1.26.0
+
+# Azure deployment
+azure-storage-blob==12.19.0
+
+# Development dependencies
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.12.1
+flake8==6.1.0
+mypy==1.7.1
