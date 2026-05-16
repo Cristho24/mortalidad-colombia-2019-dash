@@ -161,6 +161,9 @@ Ejecutar pruebas:
 ```bash
 pytest tests/ -v --cov=app
 ```
+## Mapa coroplético de mortalidad por departamento – Colombia 2019
+https://mortalidad-colombia-2019-dash.onrender.com
+
 ## Interpretación resultados
 <img width="1295" height="600" alt="WhatsApp Image 2026-05-15 at 8 45 54 PM" src="https://github.com/user-attachments/assets/38f380a8-e9eb-43cb-b5a0-3859d3b47e9e" />
 
