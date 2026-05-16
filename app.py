@@ -816,9 +816,11 @@ html.Div([
     return app
 
 
+app = create_app()
+server = app.server
+
 if __name__ == '__main__':
     try:
-        app = create_app()
         app.run(debug=True, host='0.0.0.0', port=8050)
     except Exception as e:
         logger.error(f"Failed to start application: {e}")
