@@ -162,7 +162,10 @@ Ejecutar pruebas:
 pytest tests/ -v --cov=app
 ```
 ## Mapa coroplético de mortalidad por departamento – Colombia 2019
-https://mortalidad-colombia-2019-dash.onrender.com
+
+<img width="1770" height="761" alt="image" src="https://github.com/user-attachments/assets/b1790b9d-c97b-45bf-8f12-851e43b21aee" />
+
+El mapa coroplético evidencia la distribución total de muertes por departamento en Colombia durante 2019, mostrando mayores concentraciones en los territorios con tonalidades rojas más intensas, especialmente en departamentos con alta densidad poblacional y fuerte actividad urbana. Esto sugiere que el número absoluto de muertes puede estar relacionado con factores como el tamaño de la población, la urbanización, la movilidad y el acceso a servicios de salud. En contraste, los departamentos con colores más claros registran menores niveles de mortalidad. En conjunto, el mapa permite identificar diferencias territoriales importantes y resalta la necesidad de analizar la mortalidad desde una perspectiva regional.
 
 ## Interpretación resultados
 <img width="1295" height="600" alt="WhatsApp Image 2026-05-15 at 8 45 54 PM" src="https://github.com/user-attachments/assets/38f380a8-e9eb-43cb-b5a0-3859d3b47e9e" />
