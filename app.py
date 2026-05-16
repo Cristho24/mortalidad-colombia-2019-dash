@@ -5,6 +5,7 @@ across Colombia, including geographic distribution, temporal trends, demographic
 and leading causes of death.
 """
 
+import os
 import logging
 import json
 from pathlib import Path
@@ -227,118 +228,118 @@ class MortalityAnalyzer:
             logger.error(f"Error creating department map: {e}")
             return self._create_error_figure(f"Error: {str(e)}")
 
-def create_department_map(self) -> go.Figure:
-    """Create choropleth map of deaths by department.
+    def create_department_map(self) -> go.Figure:
+        """Create choropleth map of deaths by department.
 
-    Returns:
-        Plotly figure object
-    """
-    try:
-        dept_col = self._find_column(['COD_DEPARTAMENTO', 'DEPARTAMENTO', 'DEPTO', 'COD_DPTO'])
+        Returns:
+            Plotly figure object
+        """
+        try:
+            dept_col = self._find_column(['COD_DEPARTAMENTO', 'DEPARTAMENTO', 'DEPTO', 'COD_DPTO'])
 
-        if dept_col is None:
-            logger.error("Department column not found")
-            return self._create_error_figure("No se encontró la columna de departamento")
+            if dept_col is None:
+                logger.error("Department column not found")
+                return self._create_error_figure("No se encontró la columna de departamento")
 
-        # Agrupar muertes por departamento
-        dept_deaths = self.mortality_df.groupby(dept_col).size().reset_index(name='Total_Muertes')
-        dept_deaths.columns = ['COD_DEPARTAMENTO', 'Total_Muertes']
+            # Agrupar muertes por departamento
+            dept_deaths = self.mortality_df.groupby(dept_col).size().reset_index(name='Total_Muertes')
+            dept_deaths.columns = ['COD_DEPARTAMENTO', 'Total_Muertes']
 
-        # Normalizar códigos de departamento a dos dígitos
-        dept_deaths['COD_DEPARTAMENTO'] = (
-            dept_deaths['COD_DEPARTAMENTO']
-            .astype(str)
-            .str.replace('.0', '', regex=False)
-            .str.zfill(2)
-        )
-
-        # Preparar nombres de departamentos desde DIVIPOLA
-        divipola_dept = self.divipola_df[['COD_DEPARTAMENTO', 'DEPARTAMENTO']].drop_duplicates()
-        divipola_dept['COD_DEPARTAMENTO'] = (
-            divipola_dept['COD_DEPARTAMENTO']
-            .astype(str)
-            .str.replace('.0', '', regex=False)
-            .str.zfill(2)
-        )
-
-        dept_deaths = dept_deaths.merge(
-            divipola_dept,
-            on='COD_DEPARTAMENTO',
-            how='left'
-        )
-
-        dept_deaths['DEPARTAMENTO'] = dept_deaths['DEPARTAMENTO'].fillna('Desconocido')
-
-        # Cargar archivo GeoJSON
-        geojson_path = self.data_loader.data_dir / GEOJSON_FILE
-
-        with open(geojson_path, 'r', encoding='utf-8') as f:
-            colombia_geojson = json.load(f)
-
-        # Detectar columna del GeoJSON con el código de departamento
-        possible_geojson_keys = [
-            'COD_DEPARTAMENTO',
-            'COD_DEPTO',
-            'DPTO_CCDGO',
-            'DPTO',
-            'codigo',
-            'Código',
-            'CODIGO',
-            'depto',
-            'id'
-        ]
-
-        first_feature_props = colombia_geojson['features'][0]['properties']
-        geojson_key = None
-
-        for key in possible_geojson_keys:
-            if key in first_feature_props:
-                geojson_key = key
-                break
-
-        if geojson_key is None:
-            logger.error(f"Propiedades disponibles en GeoJSON: {first_feature_props.keys()}")
-            return self._create_error_figure(
-                "No se encontró una propiedad compatible con el código de departamento en el GeoJSON"
+            # Normalizar códigos de departamento a dos dígitos
+            dept_deaths['COD_DEPARTAMENTO'] = (
+                dept_deaths['COD_DEPARTAMENTO']
+                .astype(str)
+                .str.replace('.0', '', regex=False)
+                .str.zfill(2)
             )
 
-        # Normalizar códigos dentro del GeoJSON
-        for feature in colombia_geojson['features']:
-            value = feature['properties'].get(geojson_key)
-            feature['properties'][geojson_key] = str(value).replace('.0', '').zfill(2)
+            # Preparar nombres de departamentos desde DIVIPOLA
+            divipola_dept = self.divipola_df[['COD_DEPARTAMENTO', 'DEPARTAMENTO']].drop_duplicates()
+            divipola_dept['COD_DEPARTAMENTO'] = (
+                divipola_dept['COD_DEPARTAMENTO']
+                .astype(str)
+                .str.replace('.0', '', regex=False)
+                .str.zfill(2)
+            )
 
-        # Crear mapa coroplético
-        fig = px.choropleth(
-            dept_deaths,
-            geojson=colombia_geojson,
-            locations='COD_DEPARTAMENTO',
-            featureidkey=f'properties.{geojson_key}',
-            color='Total_Muertes',
-            hover_name='DEPARTAMENTO',
-            hover_data={
-                'COD_DEPARTAMENTO': True,
-                'Total_Muertes': ':,'
-            },
-            color_continuous_scale='Reds',
-            title='Mapa de distribución total de muertes por departamento - Colombia 2019'
-        )
+            dept_deaths = dept_deaths.merge(
+                divipola_dept,
+                on='COD_DEPARTAMENTO',
+                how='left'
+            )
 
-        fig.update_geos(
-            fitbounds="locations",
-            visible=False
-        )
+            dept_deaths['DEPARTAMENTO'] = dept_deaths['DEPARTAMENTO'].fillna('Desconocido')
 
-        fig.update_layout(
-            height=650,
-            margin={"r": 0, "t": 60, "l": 0, "b": 0},
-            coloraxis_colorbar_title="Total de muertes"
-        )
+            # Cargar archivo GeoJSON
+            geojson_path = self.data_loader.data_dir / GEOJSON_FILE
 
-        return fig
+            with open(geojson_path, 'r', encoding='utf-8') as f:
+                colombia_geojson = json.load(f)
 
-    except Exception as e:
-        logger.error(f"Error creating department map: {e}")
-        return self._create_error_figure(f"Error al crear el mapa: {str(e)}")
+            # Detectar columna del GeoJSON con el código de departamento
+            possible_geojson_keys = [
+                'COD_DEPARTAMENTO',
+                'COD_DEPTO',
+                'DPTO_CCDGO',
+                'DPTO',
+                'codigo',
+                'Código',
+                'CODIGO',
+                'depto',
+                'id'
+            ]
+
+            first_feature_props = colombia_geojson['features'][0]['properties']
+            geojson_key = None
+
+            for key in possible_geojson_keys:
+                if key in first_feature_props:
+                    geojson_key = key
+                    break
+
+            if geojson_key is None:
+                logger.error(f"Propiedades disponibles en GeoJSON: {first_feature_props.keys()}")
+                return self._create_error_figure(
+                    "No se encontró una propiedad compatible con el código de departamento en el GeoJSON"
+                )
+
+            # Normalizar códigos dentro del GeoJSON
+            for feature in colombia_geojson['features']:
+                value = feature['properties'].get(geojson_key)
+                feature['properties'][geojson_key] = str(value).replace('.0', '').zfill(2)
+
+            # Crear mapa coroplético
+            fig = px.choropleth(
+                dept_deaths,
+                geojson=colombia_geojson,
+                locations='COD_DEPARTAMENTO',
+                featureidkey=f'properties.{geojson_key}',
+                color='Total_Muertes',
+                hover_name='DEPARTAMENTO',
+                hover_data={
+                    'COD_DEPARTAMENTO': True,
+                    'Total_Muertes': ':,'
+                },
+                color_continuous_scale='Reds',
+                title='Mapa de distribución total de muertes por departamento - Colombia 2019'
+            )
+
+            fig.update_geos(
+                fitbounds="locations",
+                visible=False
+            )
+
+            fig.update_layout(
+                height=650,
+                margin={"r": 0, "t": 60, "l": 0, "b": 0},
+                coloraxis_colorbar_title="Total de muertes"
+            )
+
+            return fig
+
+        except Exception as e:
+            logger.error(f"Error creating department map: {e}")
+            return self._create_error_figure(f"Error al crear el mapa: {str(e)}")
     
     def create_monthly_line_chart(self) -> go.Figure:
         """Create line chart of deaths by month.
@@ -819,9 +820,11 @@ html.Div([
 app = create_app()
 server = app.server
 
+
+# Crear la aplicación a nivel global para que Render/Gunicorn pueda encontrarla como app:server
+app = create_app()
+server = app.server
+
 if __name__ == '__main__':
-    try:
-        app.run(debug=True, host='0.0.0.0', port=8050)
-    except Exception as e:
-        logger.error(f"Failed to start application: {e}")
-        raise
+    port = int(os.environ.get('PORT', 8050))
+    app.run(debug=False, host='0.0.0.0', port=port)
