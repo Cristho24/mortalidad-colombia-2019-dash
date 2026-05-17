@@ -170,7 +170,8 @@ pytest tests/ -v --cov=app
 El mapa coroplético evidencia la distribución total de muertes por departamento en Colombia durante 2019, mostrando mayores concentraciones en los territorios con tonalidades rojas más intensas, especialmente en departamentos con alta densidad poblacional y fuerte actividad urbana. Esto sugiere que el número absoluto de muertes puede estar relacionado con factores como el tamaño de la población, la urbanización, la movilidad y el acceso a servicios de salud. En contraste, los departamentos con colores más claros registran menores niveles de mortalidad. En conjunto, el mapa permite identificar diferencias territoriales importantes y resalta la necesidad de analizar la mortalidad desde una perspectiva regional.
 
 
-<img width="1295" height="600" alt="WhatsApp Image 2026-05-15 at 8 45 54 PM" src="https://github.com/user-attachments/assets/38f380a8-e9eb-43cb-b5a0-3859d3b47e9e" />
+<img width="921" height="406" alt="image" src="https://github.com/user-attachments/assets/33772c41-9b06-40b3-a859-27bc490c6be2" />
+
 
 ### Muertes por sexo y departamento – Colombia 2019
 La distribución territorial evidencia una fuerte concentración de mortalidad en Bogotá D.C., Antioquia y Valle del Cauca, lo que resulta consistente con su densidad poblacional y nivel de urbanización. En prácticamente todos los departamentos se observa una mayor proporción de muertes masculinas frente a femeninas, sugiriendo una incidencia más alta de factores de riesgo asociados a violencia, enfermedades cardiovasculares y accidentes en hombres. Departamentos con menor población presentan volúmenes considerablemente inferiores, manteniendo una relación proporcional estable entre ambos sexos.
