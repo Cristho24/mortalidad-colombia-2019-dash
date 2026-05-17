@@ -176,27 +176,32 @@ El mapa coroplético evidencia la distribución total de muertes por departament
 ### Muertes por sexo y departamento – Colombia 2019
 La distribución territorial evidencia una fuerte concentración de mortalidad en Bogotá D.C., Antioquia y Valle del Cauca, lo que resulta consistente con su densidad poblacional y nivel de urbanización. En prácticamente todos los departamentos se observa una mayor proporción de muertes masculinas frente a femeninas, sugiriendo una incidencia más alta de factores de riesgo asociados a violencia, enfermedades cardiovasculares y accidentes en hombres. Departamentos con menor población presentan volúmenes considerablemente inferiores, manteniendo una relación proporcional estable entre ambos sexos.
 
-<img width="1295" height="500" alt="WhatsApp Image 2026-05-15 at 8 45 53 PM-3" src="https://github.com/user-attachments/assets/aa4d2902-6e01-4c98-a8fd-a9e0ad0b967e" />
+<img width="921" height="313" alt="image" src="https://github.com/user-attachments/assets/b007c671-76ec-4514-ac37-efc68ac291e9" />
+
 
 ### Top 10 causas de muerte – Colombia 2019
   Las principales causas de mortalidad están dominadas por enfermedades cardiovasculares y respiratorias, destacándose el infarto agudo de miocardio como la causa más representativa con amplia diferencia sobre las demás. La presencia recurrente de enfermedades pulmonares, neumonía e hipertensión refleja una alta carga de enfermedades crónicas no transmisibles y afecciones respiratorias. Adicionalmente, la inclusión de agresiones con armas de fuego dentro del top 10 evidencia que la violencia continúa siendo un componente relevante dentro de la mortalidad nacional. Esta distribución permite comprender que la mortalidad en Colombia durante 2019 no respondió a una única causa dominante, sino a una combinación de problemáticas de salud pública y factores sociales. La alta presencia de enfermedades cardiovasculares y respiratorias señala la importancia de fortalecer acciones preventivas relacionadas con el control de factores de riesgo, la atención temprana y el seguimiento médico de enfermedades crónicas.
 
-<img width="621" height="500" alt="WhatsApp Image 2026-05-15 at 8 45 53 PM-2" src="https://github.com/user-attachments/assets/ec72de91-d355-4ded-b16b-dafdd4e6cffe" />
+<img width="921" height="562" alt="image" src="https://github.com/user-attachments/assets/1246c699-4210-463c-9147-a6dfdaf2d215" />
+
 
 ### Top 10 ciudades con menor mortalidad – Colombia 2019
 Las ciudades identificadas presentan una participación homogénea dentro del gráfico, lo que sugiere niveles de mortalidad muy similares y relativamente bajos entre sí. La mayoría corresponde a municipios pequeños o de baja densidad poblacional ubicados en regiones periféricas como Amazonas, Chocó y Bolívar, donde el reducido tamaño poblacional influye directamente en el menor número absoluto de defunciones registradas.
 
-<img width="621" height="500" alt="WhatsApp Image 2026-05-15 at 8 45 53 PM" src="https://github.com/user-attachments/assets/d4b2be07-15e2-4da9-aa09-5de0196d2962" />
+<img width="921" height="672" alt="image" src="https://github.com/user-attachments/assets/84c67e71-f250-45a7-8807-85d2d0a3edc5" />
+
 
 ### Top 5 ciudades más violentas – Colombia 2019
 Santiago de Cali y Bogotá D.C. concentran el mayor número de homicidios, posicionándose significativamente por encima del resto de ciudades analizadas. Medellín mantiene una incidencia considerable, aunque menor respecto a los dos primeros casos, mientras Barranquilla y Cúcuta muestran cifras moderadas. El comportamiento evidencia una concentración de violencia letal en grandes centros urbanos, posiblemente asociada a dinámicas de criminalidad, desigualdad social y densidad poblacional.
 
-<img width="1295" height="500" alt="WhatsApp Image 2026-05-15 at 8 45 52 PM-2" src="https://github.com/user-attachments/assets/3a8f3d93-1ec2-4f66-bc26-336d4f00849c" />
+<img width="921" height="348" alt="image" src="https://github.com/user-attachments/assets/5071f718-5e3f-42d7-b91a-82c928b6d265" />
+
 
 ### Total de muertes por mes – Colombia 2019
 La serie temporal evidencia el comportamiento mensual de las muertes registradas en Colombia durante 2019. En términos generales, la mortalidad presenta una dinámica relativamente estable, aunque con variaciones importantes entre algunos meses. Febrero registra el valor más bajo del año, mientras que diciembre alcanza el punto más alto, lo que permite identificar un aumento hacia el cierre del periodo analizado. También se observa un incremento progresivo entre mayo y julio, seguido de una leve disminución en agosto y septiembre, antes de un nuevo repunte en el último trimestre. Estas fluctuaciones permiten reconocer posibles patrones temporales en la mortalidad nacional; Para explicar con mayor profundidad sus causas sería necesario complementar el análisis con variables adicionales, como edad, causa de muerte, departamento, condiciones epidemiológicas, movilidad o factores estacionales. En este sentido, el gráfico constituye una herramienta útil para identificar meses críticos y orientar análisis posteriores sobre los momentos del año con mayor concentración de defunciones.
 
-<img width="1295" height="500" alt="WhatsApp Image 2026-05-15 at 8 45 52 PM" src="https://github.com/user-attachments/assets/8d45a15c-4792-47be-aaf8-9439f0f9aefd" />
+<img width="921" height="343" alt="image" src="https://github.com/user-attachments/assets/5bd6d856-ed54-42e4-84f4-b42d49da917a" />
+
 
 ### Distribución de muertes por grupo de edad – Colombia 2019
 El histograma muestra la distribución de las muertes registradas en Colombia durante 2019 según los grupos de edad codificados en la base de datos. Se observa que la mortalidad tiende a concentrarse en los grupos de edad más avanzados, especialmente en los rangos superiores de la clasificación, lo que evidencia un aumento progresivo de las defunciones conforme avanza el ciclo de vida. Los grupos asociados a edades jóvenes presentan una frecuencia considerablemente menor, mientras que los mayores registros se ubican en las categorías correspondientes a adultez avanzada, vejez y longevidad. Este comportamiento es coherente con el incremento del riesgo de muerte en edades mayores, asociado al deterioro natural de la salud, la presencia de enfermedades crónicas y la acumulación de condiciones de vulnerabilidad.
